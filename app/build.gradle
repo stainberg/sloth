@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.stainberg.sloth"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary true
+        renderscriptSupportModeEnabled true
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/kotlin'
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.core:core-ktx:$core_ktx"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_vm_ktx"
+    implementation "androidx.preference:preference:$preference_version"
+    implementation "androidx.recyclerview:recyclerview:$rv_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "androidx.multidex:multidex:$multidex_version"
+
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    testImplementation "junit:junit:$test_junit"
+    androidTestImplementation "androidx.test.ext:junit:$test_ext_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$test_espresso_core"
+}
