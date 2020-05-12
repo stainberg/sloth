@@ -1,5 +1,6 @@
 package com.stainberg.sloth.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.stainberg.sloth.R
 import com.stainberg.sloth.core.ui.SlothFragment
 import com.stainberg.sloth.databinding.Container1FragmentBinding
 import com.stainberg.sloth.databinding.Container2FragmentBinding
+import com.stainberg.sloth.ui.activity.BlankActivity
 import kotlinx.android.synthetic.main.container2_fragment.*
 
 class MainFragment2(private val name: String) : SlothFragment() {
@@ -34,5 +36,18 @@ class MainFragment2(private val name: String) : SlothFragment() {
             view.containerData = viewModel.model1
         }
         return view.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        start_blank?. let {
+            it.setOnClickListener {
+                startActivity(Intent(). apply {
+                    context?. let {ctx ->
+                        setClass(ctx, BlankActivity::class.java)
+                    }
+                })
+            }
+        }
     }
 }
