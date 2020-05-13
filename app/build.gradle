@@ -8,7 +8,7 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.stainberg.sloth"
-        minSdkVersion 19
+        minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

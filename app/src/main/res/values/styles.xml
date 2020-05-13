@@ -30,4 +30,9 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="TopSelectAnimationShow">
+        <item name="android:windowEnterAnimation">@anim/top_enter</item>
+        <item name="android:windowExitAnimation">@anim/top_exit</item>
+    </style>
+
 </resources>
